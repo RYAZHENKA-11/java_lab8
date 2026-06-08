@@ -1,0 +1,31 @@
+@startuml
+skinparam linetype ortho
+hide empty members
+skinparam ArrowThickness 0.5
+
+title <size:18>lab8-common — Модель данных и сетевые DTO</size>
+
+package "Objects" {
+  class Product <<record>>
+  class Coordinates <<record>>
+  class Location <<record>>
+  class Person <<record>>
+  enum UnitOfMeasure
+}
+
+package "Network" {
+  enum CommandType
+  class Request <<record>>
+  class Response <<record>>
+}
+
+' ==================== Relationships ====================
+Request --> CommandType
+Request --> Product
+
+Product *-- Coordinates
+Product *-- Person
+Product --> UnitOfMeasure
+Person *-- Location
+
+@enduml

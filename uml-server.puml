@@ -1,0 +1,115 @@
+@startuml
+skinparam linetype ortho
+hide empty members
+skinparam ArrowThickness 0.5
+
+title <size:18>lab8-server — Серверная часть</size>
+
+package "Server Module" {
+  class Server
+  class ServerConnectionModule
+  class ServerRequestModule
+  class ServerCommandModule
+  class ServerResponseModule
+  class CommandFactory
+}
+
+package "Database" {
+  class DatabaseManager
+  class DbConfig <<record>>
+  class PasswordHasher
+}
+
+package "Commands" {
+  class Collection
+  interface Command
+  abstract class AbstractCommand
+  class AddCommand
+  class AddIfMinCommand
+  class AverageOfPriceCommand
+  class ClearCommand
+  class ExecuteScriptCommand
+  class ExitCommand
+  class FilterByUnitOfMeasureCommand
+  class HelpCommand
+  class HistoryCommand
+  class InfoCommand
+  class LoginCommand
+  class RegisterCommand
+  class RemoveByIdCommand
+  class RemoveFirstCommand
+  class SaveCommand
+  class ShowCommand
+  class SumOfPriceCommand
+  class UpdateCommand
+  class CommandResult <<record>>
+}
+
+package "Common" as COMMON {
+  class Request <<record>>
+  class Response <<record>>
+  enum CommandType
+  class Product <<record>>
+}
+
+' ==================== Server Relationships ====================
+Server --> Collection
+Server --> ServerConnectionModule
+Server --> DatabaseManager
+Server --> DbConfig
+
+ServerConnectionModule --> ServerRequestModule
+ServerConnectionModule --> ServerCommandModule
+ServerConnectionModule --> ServerResponseModule
+ServerConnectionModule --> DatabaseManager
+
+ServerRequestModule --> Request
+ServerResponseModule --> Response
+
+ServerCommandModule --> Collection
+ServerCommandModule --> CommandFactory
+ServerCommandModule --> DatabaseManager
+ServerCommandModule --> CommandResult
+ServerCommandModule --> Response
+
+CommandFactory --> AbstractCommand
+CommandFactory --> CommandType
+
+AbstractCommand ..|> Command
+AddCommand --|> AbstractCommand
+AddIfMinCommand --|> AbstractCommand
+AverageOfPriceCommand --|> AbstractCommand
+ClearCommand --|> AbstractCommand
+ExecuteScriptCommand --|> AbstractCommand
+ExitCommand --|> AbstractCommand
+FilterByUnitOfMeasureCommand --|> AbstractCommand
+HelpCommand --|> AbstractCommand
+HistoryCommand --|> AbstractCommand
+InfoCommand --|> AbstractCommand
+LoginCommand --|> AbstractCommand
+RegisterCommand --|> AbstractCommand
+RemoveByIdCommand --|> AbstractCommand
+RemoveFirstCommand --|> AbstractCommand
+SaveCommand --|> AbstractCommand
+ShowCommand --|> AbstractCommand
+SumOfPriceCommand --|> AbstractCommand
+UpdateCommand --|> AbstractCommand
+
+AbstractCommand ..> CommandResult
+
+AddCommand --> DatabaseManager
+AddIfMinCommand --> DatabaseManager
+ClearCommand --> DatabaseManager
+RegisterCommand --> DatabaseManager
+RemoveByIdCommand --> DatabaseManager
+RemoveFirstCommand --> DatabaseManager
+UpdateCommand --> DatabaseManager
+
+Collection *-- Product
+Collection --> Product
+
+DatabaseManager --> DbConfig
+DatabaseManager --> PasswordHasher
+DatabaseManager --> Product
+
+@enduml
