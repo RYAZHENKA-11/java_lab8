@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
+            fx:controller="ru.app.ui.MainController" styleClass="root" fx:id="rootPane">
+
+    <top>
+        <HBox fx:id="topBar" styleClass="top-bar" spacing="12" alignment="CENTER_LEFT">
+            <Label fx:id="userLabel" styleClass="user-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="languageLabel" styleClass="language-label"/>
+            <MenuButton fx:id="languageMenu" styleClass="language-menu"/>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane fx:id="splitPane" dividerPositions="0.55">
+            <VBox spacing="8" styleClass="left-panel">
+                <HBox fx:id="filterBar" spacing="8" alignment="CENTER_LEFT"
+                      styleClass="filter-bar">
+                    <TextField fx:id="filterField" promptText="%main.filter.placeholder"
+                               HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="unitFilterLabel" text="%main.filter.unit" styleClass="filter-label"/>
+                    <ComboBox fx:id="unitFilterCombo" styleClass="filter-combo"/>
+                </HBox>
+                <TableView fx:id="productTable" VBox.vgrow="ALWAYS"
+                           styleClass="product-table"/>
+            </VBox>
+            <VBox spacing="8" styleClass="right-panel">
+                <StackPane fx:id="canvasContainer" VBox.vgrow="ALWAYS"
+                           styleClass="canvas-container">
+                    <Canvas fx:id="visualizationCanvas" width="0" height="0"/>
+                </StackPane>
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <HBox fx:id="actionBar" spacing="6" styleClass="action-bar">
+            <Button fx:id="addButton" text="%main.button.add" styleClass="button-primary" HBox.hgrow="ALWAYS"
+                    maxWidth="Infinity"/>
+            <Button fx:id="addIfMinButton" text="%main.button.addIfMin" styleClass="button-secondary"
+                    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button fx:id="editButton" text="%main.button.edit" styleClass="button-secondary" HBox.hgrow="ALWAYS"
+                    maxWidth="Infinity"/>
+            <Button fx:id="deleteButton" text="%main.button.delete" styleClass="button-danger" HBox.hgrow="ALWAYS"
+                    maxWidth="Infinity"/>
+            <Button fx:id="clearButton" text="%main.button.clear" styleClass="button-secondary" HBox.hgrow="ALWAYS"
+                    maxWidth="Infinity"/>
+            <Button fx:id="removeFirstButton" text="%main.button.removeFirst" styleClass="button-secondary"
+                    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button fx:id="infoButton" text="%main.button.info" styleClass="button-secondary" HBox.hgrow="ALWAYS"
+                    maxWidth="Infinity"/>
+            <Button fx:id="sumPriceButton" text="%main.button.sum" styleClass="button-secondary" HBox.hgrow="ALWAYS"
+                    maxWidth="Infinity"/>
+            <Button fx:id="avgPriceButton" text="%main.button.avg" styleClass="button-secondary" HBox.hgrow="ALWAYS"
+                    maxWidth="Infinity"/>
+            <Button fx:id="scriptButton" text="%main.button.script" styleClass="button-secondary" HBox.hgrow="ALWAYS"
+                    maxWidth="Infinity"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

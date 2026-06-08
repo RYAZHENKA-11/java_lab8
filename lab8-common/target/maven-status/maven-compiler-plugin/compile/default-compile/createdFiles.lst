@@ -1,0 +1,8 @@
+ru/app/object/Product.class
+ru/app/object/Location.class
+ru/app/object/UnitOfMeasure.class
+ru/app/object/Coordinates.class
+ru/app/network/CommandType.class
+ru/app/network/Request.class
+ru/app/object/Person.class
+ru/app/network/Response.class

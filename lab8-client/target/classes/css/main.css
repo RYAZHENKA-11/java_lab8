@@ -1,0 +1,564 @@
+.root {
+  -fx-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  -fx-font-size: 13;
+  -fx-background-color: -bg-primary;
+
+  /* Looked-up colors */
+  -bg-primary: #0d1117;
+  -bg-secondary: #161b22;
+  -bg-card: #151b23;
+  -bg-input: #212830;
+  -bg-hover: #2a2f38;
+  -bg-hover-table: #1c2128;
+  -bg-pressed: #2f3743;
+  -bg-selected: #1f6feb;
+  -text-primary: #f0f6fc;
+  -text-secondary: #9198a1;
+  -text-emphasis: #e6edf3;
+  -text-white: #ffffff;
+  -border-default: #30363d;
+  -border-subtle: #3d444d;
+  -border-hover: #636e7b;
+  -border-focus: #4493f8;
+  -border-table: #21262d;
+  -accent-green: #238636;
+  -accent-green-hover: #29903b;
+  -accent-green-pressed: #217c33;
+  -accent-green-border: #1f7b2e;
+  -accent-danger: #da3633;
+  -accent-danger-hover: #e24643;
+  -accent-danger-pressed: #c42f2c;
+  -accent-danger-border: #b62324;
+  -error-text: #f85149;
+  -shadow: rgba(0,0,0,0.4);
+}
+
+/* Top bar */
+
+.top-bar {
+  -fx-background-color: -bg-secondary;
+  -fx-border-color: -border-default;
+  -fx-border-width: 0 0 1 0;
+  -fx-padding: 8 16;
+}
+
+.user-label {
+  -fx-font-size: 14;
+  -fx-font-weight: 600;
+  -fx-text-fill: -text-primary;
+}
+
+.language-label {
+  -fx-font-size: 12;
+  -fx-text-fill: -text-secondary;
+  -fx-font-weight: 600;
+}
+
+.language-menu {
+  -fx-background-radius: 6;
+  -fx-border-radius: 6;
+  -fx-border-color: -border-subtle;
+  -fx-background-color: -bg-input;
+  -fx-font-size: 13;
+  -fx-text-fill: -text-primary;
+  -fx-padding: 4 8;
+  -fx-cursor: hand;
+}
+
+.language-menu .label {
+  -fx-text-fill: -text-primary;
+}
+
+.language-menu .arrow-button {
+  -fx-background-color: transparent;
+}
+
+.language-menu .arrow {
+  -fx-background-color: -text-secondary;
+}
+
+/* Split pane */
+
+.split-pane {
+  -fx-background-color: -bg-primary;
+  -fx-padding: 8;
+}
+
+.split-pane > .split-pane-divider {
+  -fx-background-color: -border-default;
+  -fx-padding: 1;
+}
+
+/* Left panel (table) */
+
+.left-panel {
+  -fx-padding: 0 8 0 0;
+  -fx-min-width: 250;
+}
+
+.filter-bar {
+  -fx-padding: 4 0;
+}
+
+.filter-label {
+  -fx-font-size: 12;
+  -fx-text-fill: -text-secondary;
+  -fx-font-weight: 600;
+}
+
+.filter-combo {
+  -fx-background-radius: 6;
+  -fx-border-radius: 6;
+  -fx-border-color: -border-subtle;
+  -fx-background-color: -bg-input;
+  -fx-font-size: 13;
+  -fx-text-fill: -text-primary;
+  -fx-min-width: 120;
+}
+
+.filter-combo .list-cell {
+  -fx-background-color: -bg-input;
+  -fx-text-fill: -text-primary;
+}
+
+/* Table view */
+
+.product-table {
+  -fx-background-color: -bg-primary;
+  -fx-border-color: -border-default;
+  -fx-border-width: 1;
+  -fx-border-radius: 6;
+  -fx-background-radius: 6;
+}
+
+.product-table .column-header-background {
+  -fx-background-color: -bg-secondary;
+  -fx-border-color: -border-default;
+  -fx-border-width: 0 0 1 0;
+}
+
+.product-table .column-header {
+  -fx-background-color: transparent;
+  -fx-border-color: -border-default;
+  -fx-border-width: 0 1 0 0;
+  -fx-padding: 8 4;
+}
+
+.product-table .column-header .label {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 12;
+  -fx-font-weight: 600;
+}
+
+.product-table .table-cell {
+  -fx-text-fill: -text-emphasis;
+  -fx-font-size: 12;
+  -fx-padding: 6 4;
+  -fx-border-color: -border-table;
+  -fx-border-width: 0 0 1 0;
+}
+
+.product-table .table-row-cell {
+  -fx-background-color: -bg-primary;
+}
+
+.product-table .table-row-cell:odd {
+  -fx-background-color: -bg-secondary;
+}
+
+.product-table .table-row-cell:selected {
+  -fx-background-color: -bg-selected;
+}
+
+.product-table .table-row-cell:selected .table-cell {
+  -fx-text-fill: -text-white;
+}
+
+.product-table .table-row-cell:hover {
+  -fx-background-color: -bg-hover-table;
+}
+
+.product-table .table-row-cell:selected:hover {
+  -fx-background-color: -bg-selected;
+}
+
+.product-table .placeholder .label {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13;
+}
+
+/* Right panel (canvas) */
+
+.right-panel {
+  -fx-padding: 0 0 0 8;
+}
+
+.canvas-container {
+  -fx-background-color: -bg-secondary;
+  -fx-border-color: -border-default;
+  -fx-border-width: 1;
+  -fx-border-radius: 6;
+  -fx-background-radius: 6;
+  -fx-min-width: 200;
+  -fx-min-height: 200;
+}
+
+/* Action bar */
+
+.action-bar {
+  -fx-background-color: -bg-secondary;
+  -fx-border-color: -border-default;
+  -fx-border-width: 1 0 0 0;
+  -fx-padding: 8 12;
+}
+
+/* Buttons */
+
+.button-primary {
+  -fx-background-color: -accent-green;
+  -fx-text-fill: -text-white;
+  -fx-font-size: 13;
+  -fx-font-weight: 600;
+  -fx-padding: 6 16;
+  -fx-background-radius: 6;
+  -fx-cursor: hand;
+  -fx-border-color: -accent-green-border;
+  -fx-border-width: 1;
+  -fx-border-radius: 6;
+}
+
+.button-primary:hover {
+  -fx-background-color: -accent-green-hover;
+}
+
+.button-primary:pressed {
+  -fx-background-color: -accent-green-pressed;
+}
+
+.button-primary:disabled {
+  -fx-opacity: 0.65;
+}
+
+.button-secondary {
+  -fx-background-color: -bg-input;
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 13;
+  -fx-font-weight: 500;
+  -fx-padding: 6 16;
+  -fx-background-radius: 6;
+  -fx-cursor: hand;
+  -fx-border-color: -border-subtle;
+  -fx-border-width: 1;
+  -fx-border-radius: 6;
+}
+
+.button-secondary:hover {
+  -fx-background-color: -bg-hover;
+}
+
+.button-secondary:pressed {
+  -fx-background-color: -bg-pressed;
+}
+
+.button-secondary:disabled {
+  -fx-opacity: 0.65;
+}
+
+.button-danger {
+  -fx-background-color: -accent-danger;
+  -fx-text-fill: -text-white;
+  -fx-font-size: 13;
+  -fx-font-weight: 600;
+  -fx-padding: 6 16;
+  -fx-background-radius: 6;
+  -fx-cursor: hand;
+  -fx-border-color: -accent-danger-border;
+  -fx-border-width: 1;
+  -fx-border-radius: 6;
+}
+
+.button-danger:hover {
+  -fx-background-color: -accent-danger-hover;
+}
+
+.button-danger:pressed {
+  -fx-background-color: -accent-danger-pressed;
+}
+
+.button-danger:disabled {
+  -fx-opacity: 0.65;
+}
+
+/* Context menu (for language menu) */
+
+.context-menu {
+  -fx-background-color: -bg-card;
+  -fx-border-color: -border-subtle;
+  -fx-border-width: 1;
+  -fx-border-radius: 6;
+  -fx-background-radius: 6;
+  -fx-padding: 4 0;
+  -fx-effect: dropshadow(gaussian, -shadow, 8, 0, 0, 4);
+}
+
+.menu-item {
+  -fx-padding: 6 12;
+  -fx-background-color: transparent;
+}
+
+.menu-item .label {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 13;
+}
+
+.menu-item:hover,
+.menu-item:focused {
+  -fx-background-color: -bg-hover;
+  -fx-background-radius: 4;
+}
+
+/* Text field */
+
+.text-field {
+  -fx-background-radius: 6;
+  -fx-border-radius: 6;
+  -fx-border-color: -border-subtle;
+  -fx-border-width: 1;
+  -fx-padding: 6 10;
+  -fx-font-size: 13;
+  -fx-text-fill: -text-primary;
+  -fx-background-color: -bg-input;
+  -fx-prompt-text-fill: -text-secondary;
+}
+
+.text-field:focused {
+  -fx-border-color: -border-focus;
+  -fx-background-color: -bg-input;
+}
+
+.text-field:hover {
+  -fx-border-color: -border-hover;
+}
+
+/* Combo box (form dialog) */
+
+.combo-box {
+  -fx-background-radius: 6;
+  -fx-border-radius: 6;
+  -fx-border-color: -border-subtle;
+  -fx-border-width: 1;
+  -fx-background-color: -bg-input;
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 13;
+  -fx-padding: 2 0;
+}
+
+.combo-box .list-cell {
+  -fx-background-color: -bg-input;
+  -fx-text-fill: -text-primary;
+  -fx-padding: 4 8;
+}
+
+.combo-box .arrow-button {
+  -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+  -fx-background-color: -text-secondary;
+}
+
+/* Date picker (form dialog) */
+
+.date-picker {
+  -fx-background-radius: 6;
+  -fx-border-radius: 6;
+  -fx-border-color: -border-subtle;
+  -fx-border-width: 1;
+  -fx-background-color: -bg-input;
+}
+
+.date-picker .text-field {
+  -fx-background-radius: 6 0 0 6;
+  -fx-border-radius: 6 0 0 6;
+  -fx-background-color: -bg-input;
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 13;
+}
+
+.date-picker .arrow-button {
+  -fx-background-radius: 0 6 6 0;
+  -fx-background-color: -bg-input;
+  -fx-border-color: -border-subtle;
+  -fx-border-width: 0 0 0 1;
+}
+
+.date-picker .arrow-button:hover {
+  -fx-background-color: -bg-hover;
+}
+
+/* Date picker popup (calendar dropdown) */
+
+.date-picker-popup {
+  -fx-background-color: -bg-card;
+  -fx-border-color: -border-default;
+  -fx-border-width: 1;
+  -fx-border-radius: 8;
+  -fx-background-radius: 8;
+  -fx-padding: 4;
+}
+
+.date-picker-popup .month-year-pane {
+  -fx-background-color: -bg-secondary;
+  -fx-padding: 4 0;
+}
+
+.date-picker-popup .month-year-pane .label {
+  -fx-text-fill: -text-primary;
+  -fx-font-weight: 700;
+}
+
+.date-picker-popup .spinner .button {
+  -fx-background-color: transparent;
+  -fx-text-fill: -text-primary;
+}
+
+.date-picker-popup .spinner .button:hover {
+  -fx-background-color: -bg-hover;
+  -fx-background-radius: 4;
+}
+
+.date-picker-popup .day-name,
+.date-picker-popup .day-name-cell {
+  -fx-text-fill: -text-secondary;
+  -fx-font-weight: 600;
+}
+
+.date-picker-popup .week-number {
+  -fx-text-fill: -text-secondary;
+}
+
+.date-picker-popup .day-cell {
+  -fx-background-color: -bg-card;
+  -fx-text-fill: -text-primary;
+  -fx-border-color: -border-table;
+  -fx-border-width: 0.5;
+}
+
+.date-picker-popup .day-cell:hover {
+  -fx-background-color: -bg-hover;
+}
+
+.date-picker-popup .day-cell:selected {
+  -fx-background-color: -bg-selected;
+  -fx-text-fill: -text-white;
+}
+
+.date-picker-popup .day-cell:disabled {
+  -fx-opacity: 0.35;
+}
+
+.date-picker-popup .hyperlink {
+  -fx-text-fill: -text-primary;
+}
+
+/* Scroll pane (inside table) */
+
+.scroll-bar {
+  -fx-background-color: -bg-secondary;
+}
+
+.scroll-bar .thumb {
+  -fx-background-color: -border-default;
+  -fx-background-radius: 6;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+  -fx-background-color: transparent;
+}
+
+/* Product form dialog */
+
+.dialog-root {
+  -fx-background-color: -bg-primary;
+  -fx-padding: 16;
+  -fx-spacing: 12;
+}
+
+.dialog-error {
+  -fx-text-fill: -error-text;
+  -fx-font-size: 12;
+  -fx-wrap-text: true;
+}
+
+.dialog-button-bar {
+  -fx-padding: 8 0 0 0;
+  -fx-spacing: 8;
+}
+
+/* Form field label */
+
+.field-label {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 13;
+  -fx-font-weight: 600;
+}
+
+/* Alert dialog */
+
+.dialog-pane {
+  -fx-background-color: -bg-secondary;
+  -fx-border-color: -border-default;
+}
+
+.dialog-pane .header-panel {
+  -fx-background-color: -bg-secondary;
+}
+
+.dialog-pane .header-panel .label {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14;
+  -fx-font-weight: 600;
+}
+
+.dialog-pane .content.label {
+  -fx-text-fill: -text-emphasis;
+  -fx-font-size: 13;
+}
+
+.dialog-pane .button-bar .button {
+  -fx-background-color: -bg-input;
+  -fx-text-fill: -text-primary;
+  -fx-background-radius: 6;
+  -fx-border-color: -border-subtle;
+  -fx-border-width: 1;
+  -fx-border-radius: 6;
+  -fx-padding: 6 16;
+  -fx-cursor: hand;
+}
+
+.dialog-pane .button-bar .button:hover {
+  -fx-background-color: -bg-hover;
+}
+
+.dialog-pane .list-view {
+  -fx-background-color: -bg-input;
+  -fx-border-color: -border-subtle;
+  -fx-border-radius: 6;
+  -fx-background-radius: 6;
+}
+
+.dialog-pane .list-view .list-cell {
+  -fx-background-color: -bg-input;
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 13;
+  -fx-padding: 6 10;
+}
+
+.dialog-pane .list-view .list-cell:hover {
+  -fx-background-color: -bg-hover;
+}
+
+.dialog-pane .list-view .list-cell:selected {
+  -fx-background-color: -bg-selected;
+}

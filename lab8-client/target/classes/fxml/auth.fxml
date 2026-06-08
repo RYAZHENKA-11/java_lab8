@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
+      fx:controller="ru.app.ui.AuthController" styleClass="auth-background"
+      alignment="CENTER" spacing="0">
+    <fx:define>
+        <ToggleGroup fx:id="toggleGroup"/>
+    </fx:define>
+
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <VBox styleClass="auth-card" spacing="14" alignment="TOP_CENTER">
+        <HBox alignment="CENTER_RIGHT" spacing="6">
+            <Label fx:id="languageLabel" styleClass="language-label"/>
+            <MenuButton fx:id="languageMenu" styleClass="language-menu"/>
+        </HBox>
+
+        <Label fx:id="headerLabel" styleClass="auth-header"/>
+
+        <HBox alignment="CENTER" spacing="0">
+            <ToggleButton fx:id="loginToggle" text="%auth.login.tab"
+                          toggleGroup="$toggleGroup" selected="true"/>
+            <ToggleButton fx:id="registerToggle" text="%auth.register.tab"
+                          toggleGroup="$toggleGroup"/>
+        </HBox>
+
+        <VBox fx:id="loginForm" spacing="12">
+            <VBox spacing="3">
+                <Label fx:id="loginFieldLabel" styleClass="field-label"/>
+                <TextField fx:id="loginField" promptText=""/>
+            </VBox>
+            <VBox spacing="3">
+                <Label fx:id="passwordFieldLabel" styleClass="field-label"/>
+                <PasswordField fx:id="passwordField" promptText=""/>
+            </VBox>
+            <HBox spacing="8" alignment="CENTER">
+                <ProgressIndicator fx:id="loginProgress" visible="false" managed="false"/>
+                <Button fx:id="loginButton" styleClass="button-primary" HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity"/>
+            </HBox>
+        </VBox>
+
+        <VBox fx:id="registerForm" spacing="12" visible="false" managed="false">
+            <VBox spacing="3">
+                <Label fx:id="regLoginFieldLabel" styleClass="field-label"/>
+                <TextField fx:id="regLoginField" promptText=""/>
+            </VBox>
+            <VBox spacing="3">
+                <Label fx:id="regPasswordFieldLabel" styleClass="field-label"/>
+                <PasswordField fx:id="regPasswordField" promptText=""/>
+            </VBox>
+            <VBox spacing="3">
+                <Label fx:id="regConfirmFieldLabel" styleClass="field-label"/>
+                <PasswordField fx:id="regConfirmField" promptText=""/>
+            </VBox>
+            <HBox spacing="8" alignment="CENTER">
+                <ProgressIndicator fx:id="registerProgress" visible="false" managed="false"/>
+                <Button fx:id="registerButton" styleClass="button-primary" HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity"/>
+            </HBox>
+        </VBox>
+
+        <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" alignment="CENTER"
+               maxWidth="Infinity"/>
+    </VBox>
+
+    <Region VBox.vgrow="ALWAYS"/>
+</VBox>
